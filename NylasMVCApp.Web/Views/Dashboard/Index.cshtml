@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "Dashboard";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        @if (string.IsNullOrEmpty(ViewBag.ErrorMessage))
+        {
+            <h2>@ViewBag.Token</h2>
+        }
+        else
+        {
+            <h2 class="has-error">@ViewBag.ErrorMessage</h2>
+        }
+    </div>
+</body>
+</html>

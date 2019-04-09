@@ -1,0 +1,47 @@
+﻿@model CalendarViewModel
+@{
+    ViewBag.Title = "Calendar";
+}
+
+@*<div class="row">
+    <div class="col-lg-12">*@
+@if (string.IsNullOrEmpty(Model.Error))
+{
+    if (Model.Calendars != null && Model.Calendars.Count > 0)
+    {
+        <h2>Calendars</h2>
+        <p>Your google calenders are as below:</p>
+        <div class="table-responsive">
+            <table class="table table-hover table-striped">
+                <thead>
+                    <tr>
+                        <th>Calendar Id</th>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Account Id</th>
+                        <th>Read Only</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var calendar in Model.Calendars)
+                    {
+                        <tr>
+                            <td>@calendar.id</td>
+                            <td>@Html.ActionLink(@calendar.name, "CalendarDetail", calendar)</td>
+                            <td>@calendar.description</td>
+                            <td>@calendar.account_id</td>
+                            <td>@(calendar.read_only == "true" ? "Yes" : "No")</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+}
+else
+{
+    @Model.Error
+}
+@*</div>
+    </div>*@
+

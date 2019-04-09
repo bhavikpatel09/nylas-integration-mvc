@@ -1,0 +1,65 @@
+﻿@model CalendarDetailViewModel
+@{
+    ViewBag.Title = "Calender Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@if (Model.CalendarDetail != null && Model.Error == "")
+{
+    <main role="main">
+
+        <section class="jumbotron text-center">
+            <div class="container">
+                <h1 class="jumbotron-heading">@Model.CalendarDetail.name</h1>
+                <p class="lead text-muted">@Model.CalendarDetail.description  @Model.CalendarDetail.account_id</p>
+            </div>
+        </section>
+        <div class="album py-5 bg-light">
+            <div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3 class="text-center">Events </h3>
+                        <p class="pull-right">@Html.ActionLink("Add Event", "PostEvent", new { calendarId = @Model.CalendarDetail.id }, new { @class = "btn btn-primary" })</p>
+                    </div>
+                </div>
+                @if (Model.Events != null && Model.Events.Count > 0)
+                {
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="list-group">
+                                @foreach (var val in Model.Events)
+                                {
+                                    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+
+                                        <div class="d-flex w-100 justify-content-between">
+                                            <h4 class="mb-1">@val.title  -  (Status: @val.status)</h4>
+                                            <small>@(val.when != null && !string.IsNullOrEmpty(val.when.date) ? "When: " + val.when.date : "")</small>
+                                        </div>
+                                    </a>
+                                }
+                            </div>
+                            @*<ul class="nav md-pills nav-justified pills-info">
+                                    @foreach (var val in Model.Events)
+                                    {
+                                        <li class="nav-item">
+                                            <a class="nav-link active" data-toggle="tab" href="#" role="tab">
+                                                <i class="fab fa-android mr-1"
+                                                   aria-hidden="true"></i> @val.title  -  (Status: @val.status)
+                                            </a>
+                                            <span>@(val.when != null && !string.IsNullOrEmpty(val.when.date) ? "When: " + val.when.date : "")</span>
+                                        </li>
+                                    }
+                                </ul>*@
+
+
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+
+    </main>
+
+
+
+
+}
