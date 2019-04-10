@@ -1,14 +1,32 @@
-﻿@{
+﻿@model NylasMVCApp.Web.Models.HomeModel
+@{
     ViewBag.Title = "Home Page";
 }
 
 <div class="jumbotron">
-    <h2>Login to</h2>    
-    <p>@Html.ActionLink("Gmail Account", "Login")</p>
-    <small>if you have already logged in before, it will redirect to Calendar Page.</small>
+    <h2>Sign up: </h2>
+    <p>@Html.ActionLink("Sign up using Google", "Login",null, new { @class = "btn btn-success" })</p>
+    <small>if you haven't logged in before, please sign up by google account here</small>
+
+    <h2>Login by email: </h2>
+    @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { @autocomplete = "off" }))
+    {
+
+        <div class="form-group">
+            <label for="email">Email Id:</label>
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+        </div>
+        <button type="submit" class="btn btn-primary">Login</button>
+    }    
+    <small>if you have already logged in before, please enter your email adddress and login.</small>
 </div>
 <div class="row">
-    <div class="col-md-4">
-        
+    <div class="col-md-12">
+        @if (!string.IsNullOrEmpty(Model.Error))
+        {
+            <div class="alert alert-danger">
+                <strong>Error!</strong> @ViewBag.Error
+            </div>
+        }
     </div>
 </div>

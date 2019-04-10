@@ -18,7 +18,9 @@
         }
         else
         {
-            <h2 class="has-error">@ViewBag.ErrorMessage</h2>
+            <div class="alert alert-danger">
+                <strong>Danger!</strong> @ViewBag.ErrorMessage
+            </div>
         }
     </div>
 </body>

@@ -9,6 +9,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <_PublishTargetUrl>D:\Publish</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
+    <File Include="auth.json">
+      <publishTime>04/10/2019 13:57:05</publishTime>
+    </File>
     <File Include="bin/Antlr3.Runtime.dll">
       <publishTime>09/10/2013 16:29:20</publishTime>
     </File>
@@ -28,10 +31,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/18/2018 09:44:54</publishTime>
     </File>
     <File Include="bin/NylasMVCApp.Web.dll">
-      <publishTime>04/09/2019 20:01:42</publishTime>
+      <publishTime>04/10/2019 14:20:30</publishTime>
     </File>
     <File Include="bin/NylasMVCApp.Web.pdb">
-      <publishTime>04/09/2019 20:01:42</publishTime>
+      <publishTime>04/10/2019 14:20:30</publishTime>
     </File>
     <File Include="bin/roslyn/csc.exe">
       <publishTime>05/24/2018 13:38:22</publishTime>
@@ -286,16 +289,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/09/2019 12:56:46</publishTime>
     </File>
     <File Include="Views/Calendar/Index.cshtml">
-      <publishTime>04/09/2019 18:06:42</publishTime>
+      <publishTime>04/10/2019 12:56:40</publishTime>
     </File>
     <File Include="Views/CalendarDetail/Index.cshtml">
-      <publishTime>04/09/2019 19:39:53</publishTime>
+      <publishTime>04/10/2019 14:15:31</publishTime>
     </File>
     <File Include="Views/Dashboard/Index.cshtml">
-      <publishTime>04/09/2019 15:46:03</publishTime>
+      <publishTime>04/10/2019 12:52:53</publishTime>
     </File>
     <File Include="Views/Event/Index.cshtml">
-      <publishTime>04/09/2019 19:48:56</publishTime>
+      <publishTime>04/10/2019 12:50:15</publishTime>
     </File>
     <File Include="Views/Home/About.cshtml">
       <publishTime>04/09/2019 12:56:11</publishTime>
@@ -304,13 +307,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/09/2019 12:56:11</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>04/09/2019 19:53:09</publishTime>
+      <publishTime>04/10/2019 13:52:58</publishTime>
     </File>
     <File Include="Views/Shared/Error.cshtml">
       <publishTime>04/09/2019 12:56:11</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>04/09/2019 15:18:47</publishTime>
+      <publishTime>04/10/2019 14:18:32</publishTime>
     </File>
     <File Include="Views/Shared/_Login.cshtml">
       <publishTime>04/09/2019 14:22:49</publishTime>
@@ -322,7 +325,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/09/2019 12:56:11</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>04/09/2019 20:01:44</publishTime>
+      <publishTime>04/10/2019 14:20:30</publishTime>
     </File>
   </ItemGroup>
 </Project>

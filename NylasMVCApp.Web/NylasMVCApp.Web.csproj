@@ -125,6 +125,7 @@
   <ItemGroup>
     <Compile Include="App_Start\APIService.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FileService.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Constants\ServiceConstants.cs" />
@@ -137,8 +138,10 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\APIResponseResult.cs" />
+    <Compile Include="Models\AuthDataModel.cs" />
     <Compile Include="Models\CalendarDetail.cs" />
     <Compile Include="Models\EventModel.cs" />
+    <Compile Include="Models\HomeModel.cs" />
     <Compile Include="Models\Participant.cs" />
     <Compile Include="Models\TokenRequestModel.cs" />
     <Compile Include="Models\TokenResponse.cs" />
@@ -158,6 +161,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="auth.json" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -170,7 +174,9 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>

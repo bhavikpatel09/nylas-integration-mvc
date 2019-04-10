@@ -30,6 +30,15 @@
 }
 else
 {
-    @ViewBag.Error;
+    <div class="alert alert-danger">
+        <strong>Danger!</strong> @ViewBag.Error
+    </div>
+
+}
+@if (!string.IsNullOrEmpty(ViewBag.Success))
+{
+    <div class="alert alert-success">
+        <strong>Success!</strong> New Event added into the calendar.
+    </div>
 }
 

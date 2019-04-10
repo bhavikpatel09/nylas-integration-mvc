@@ -32,6 +32,8 @@
 
                                         <div class="d-flex w-100 justify-content-between">
                                             <h4 class="mb-1">@val.title  -  (Status: @val.status)</h4>
+                                            <p>Description: @val.description</p>
+                                            <p>Location: @val.location</p>
                                             <small>@(val.when != null && !string.IsNullOrEmpty(val.when.date) ? "When: " + val.when.date : "")</small>
                                         </div>
                                     </a>
@@ -50,7 +52,6 @@
                                     }
                                 </ul>*@
 
-
                         </div>
                     </div>
                 }
@@ -59,7 +60,10 @@
 
     </main>
 
-
-
-
+}
+else
+{
+    <div class="alert alert-danger">
+        <strong>Danger!</strong> @Model.Error
+    </div>
 }

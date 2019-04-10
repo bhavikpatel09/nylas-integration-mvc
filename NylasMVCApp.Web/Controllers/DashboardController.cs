@@ -2,6 +2,7 @@
 using NylasMVCApp.Web.Models;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -29,15 +30,15 @@ namespace NylasMVCApp.Web.Controllers
 
                         TokenRequestModel tokenRequestModel = new TokenRequestModel();
                         tokenRequestModel.code = code;
-                        tokenRequestModel.client_secret = "b9lyjvnu234p2u09b9ycl2buq";
-                        tokenRequestModel.client_Id = "7kvz9jl8a9eypd7p1assjj2wo";
-                        tokenRequestModel.grant_type = "authorization_code";
+                        tokenRequestModel.client_secret = ConfigurationManager.AppSettings["ClientSecret"].ToString();//"b9lyjvnu234p2u09b9ycl2buq";
+                        tokenRequestModel.client_Id = ConfigurationManager.AppSettings["ClientId"].ToString();//"7kvz9jl8a9eypd7p1assjj2wo";
+                        tokenRequestModel.grant_type = ConfigurationManager.AppSettings["GrantType"].ToString();//"authorization_code";
 
                         List<KeyValuePair<string, string>> pairs = new List<KeyValuePair<string, string>>();
 
                         pairs.Add(new KeyValuePair<string, string>("client_id", tokenRequestModel.client_Id));
                         pairs.Add(new KeyValuePair<string, string>("client_secret", tokenRequestModel.client_secret));
-                        pairs.Add(new KeyValuePair<string, string>("grant_type", "authorization_code"));
+                        pairs.Add(new KeyValuePair<string, string>("grant_type", tokenRequestModel.grant_type));
                         pairs.Add(new KeyValuePair<string, string>("code", code));
 
                         FormUrlEncodedContent content = new FormUrlEncodedContent(pairs);
@@ -57,6 +58,11 @@ namespace NylasMVCApp.Web.Controllers
                              */
 
                             var tokenResponse = JsonConvert.DeserializeObject<TokenResponse>(result);
+                            try
+                            {
+                                FileService.SaveToken(tokenResponse);
+                            }
+                            catch (Exception) { }
                             Session["token"] = tokenResponse;
                             ViewBag.Token = result;
                         }

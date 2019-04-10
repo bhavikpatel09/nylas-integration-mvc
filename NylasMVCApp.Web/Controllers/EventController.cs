@@ -17,6 +17,7 @@ namespace NylasMVCApp.Web.Controllers
         public ActionResult Index(string calendarId)
         {
             EventModel eventModel = new EventModel();
+            ViewBag.Success = "";
             eventModel.calendar_id = calendarId;
             if (!string.IsNullOrEmpty(calendarId))
             {
@@ -37,7 +38,6 @@ namespace NylasMVCApp.Web.Controllers
 
                 if (tokenResponse != null && !string.IsNullOrEmpty(tokenResponse.access_token))
                 {
-
                     eventModel.when = new When() { date = "2019-04-09" };
 
                     var objectData = JsonConvert.SerializeObject(eventModel);
@@ -49,11 +49,13 @@ namespace NylasMVCApp.Web.Controllers
 
                         var newEventModel = new EventModel();
                         newEventModel.calendar_id = eventModel.calendar_id;
+                        ViewBag.Success = "Event Added.";
                         return View(newEventModel);
                         //return RedirectToAction("Index", "CalendarDetail", new { calendarId = eventModel.calendar_id });
                     }
                     else
                     {
+                        ViewBag.Success = "";
                         var result = response.Content.ReadAsStringAsync().Result;
                         return Content(result);
                     }
